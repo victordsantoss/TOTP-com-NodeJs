@@ -2,6 +2,12 @@ import Express from "express";
 import bodyParser from "body-parser";
 import jwt from 'jsonwebtoken';
 import { totp } from 'otplib';
+
+/*
+    Jwt gerado a partir de um um objeto com dados fictícios, 
+    em um ambiente real esse dado seria um Jwt idendticador de um item armarzenado no banco de dados.
+*/
+
 import { jwtByPayload } from "./data/fakePayload.js";
 
 const app = Express();
@@ -9,7 +15,9 @@ const app = Express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Em um ambiente real recomenda-se que a "secret" seja um HASH criptografado e armazenado com segurança no .env
+/*
+    Em um ambiente real recomenda-se que a "secret" seja um HASH criptografado e armazenado com segurança no .env
+*/
 const secret = "KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD";
 
 app.get('/generate-dynamic-jwt', (request, response, next) => {
