@@ -27,5 +27,3 @@ npm install
 ``` shell
 nodemon index.js
 ```
-
-### Web
