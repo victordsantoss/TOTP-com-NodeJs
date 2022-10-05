@@ -31,7 +31,7 @@ app.get('/generate-dynamic-jwt', (request, response, next) => {
         decoded.totpToken = securityToken;
         const newJwt = jwt.sign(decoded, secret);
 
-        response.json({ time: time, newJwt: newJwt })
+        response.json({ time: time, newJwt: newJwt, decoded: decoded })
     } catch (error) {
         console.log(`Generate Dynamica Jwt Error ${error}`);
         next(error);
